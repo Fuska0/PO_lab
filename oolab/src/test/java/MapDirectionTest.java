@@ -35,5 +35,5 @@ public class MapDirectionTest {
 
     }
 
-// sprawdzam czy push dziala
+// sprawdzam czy push dziala 2
 }
