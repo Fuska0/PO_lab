@@ -6,3 +6,5 @@ public enum Direction {
     RIGHT,
     LEFT
 }
+
+// sprawdzam czy push dziala
