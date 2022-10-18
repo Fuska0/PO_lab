@@ -82,7 +82,7 @@ public class World {
 
         System.out.println("system zakończył działanie");
     }
-    // moze zadzialaaaaa asdasas
+    // moze zadziala
 }
 
 
