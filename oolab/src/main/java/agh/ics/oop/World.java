@@ -18,7 +18,9 @@ public class World {
 
 
     }
-    // moze zadziala proba kolejna
+    // na ten moment najprawdopodobniej zaimplementowalbym metode ktora posiadalaby tablice  dwuwymiarowa w jakim miejscu
+    // znajduje sie jakis zwierzak. przy tworzeniu kazdego zwierzaka i poruszaniu sie nim, dane w tablicy bylyby
+    // aktualizowane oraz mozliwosc przejscia na dane pola bylaby tylko wtedy gdy jest ono puste
 }
 
 
