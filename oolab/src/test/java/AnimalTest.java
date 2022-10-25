@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AnimalTest {
-    String[] args1 = {"f","f","f","b","l","f","f","l","f","f","f","r"}; // orientacja + pozycja + wyjscie poza mape
-    String[] args2 = {"l","l","l","b","b","b","r","r","f","b","r"}; // orientacja + pozycja + wyjscie poza mape
+    String[] args1 = {"f","f","f","f","b","l","f","f","l","f","f","f","r"}; // orientacja + pozycja
+    String[] args2 = {"l","l","l","b","b","b","r","r","f","b","r"}; // orientacja + pozycja
     String[] args3 = {"f","f","f","f","f","f","f","f","r","f","f","f","f","f","f","f","f"}; // mocne wyjscie poza mape
     String[] args4 ={"f","a","b","c","l","o","r"};
 

@@ -11,13 +11,17 @@ public class Animal {
 
     public void move(MoveDirection direction){
         switch(direction){
+
             case RIGHT -> orientation = orientation.next(orientation);
             case LEFT -> orientation = orientation.previous(orientation);
             case FORWARD -> position = position.Add(orientation.toUnitVector(orientation));
             case BACKWARD -> position = position.Subtract(orientation.toUnitVector(orientation));
+
         }
+
         position = position.LowerLeft(new Vector2d(4,4));
         position = position.UpperRight(new Vector2d(0,0));
+
     }
 
 

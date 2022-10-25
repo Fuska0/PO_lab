@@ -33,5 +33,6 @@ public class OptionsParser {
 
         MoveDirection[] DirectionsOk = Arrays.copyOf(Directions,p);
         return DirectionsOk;
+
     }
 }
