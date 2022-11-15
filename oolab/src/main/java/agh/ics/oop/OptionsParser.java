@@ -5,33 +5,33 @@ public class OptionsParser {
 
     public MoveDirection[] parse(String[] args){
 
-        int p = 0;
+        int counter = 0;
         int n = args.length;
         MoveDirection[] Directions = new MoveDirection[n];
 
         for (String direction : args){
             switch (direction){
                 case "f", "forward" -> {
-                    Directions[p] = MoveDirection.FORWARD;
-                    p++;
+                    Directions[counter] = MoveDirection.FORWARD;
+                    counter++;
                 }
                 case "b" , "backward " -> {
-                    Directions[p] = MoveDirection.BACKWARD;
-                    p++;
+                    Directions[counter] = MoveDirection.BACKWARD;
+                    counter++;
                 }
                 case "r", "right" -> {
-                    Directions[p] = MoveDirection.RIGHT;
-                    p++;
+                    Directions[counter] = MoveDirection.RIGHT;
+                    counter++;
                 }
                 case "l", "left" -> {
-                    Directions[p] = MoveDirection.LEFT;
-                    p++;
+                    Directions[counter] = MoveDirection.LEFT;
+                    counter++;
                 }
                 default -> {}
             }
         }
 
-        MoveDirection[] DirectionsOk = Arrays.copyOf(Directions,p);
+        MoveDirection[] DirectionsOk = Arrays.copyOf(Directions,counter);
         return DirectionsOk;
 
     }
