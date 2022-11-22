@@ -32,12 +32,11 @@ abstract class AbstractWorldMap implements IWorldMap {
     @Override
     public String toString() {
         MapVisualizer map = new MapVisualizer(this);
-
         return map.draw(getLeftLowerCorner(), getRightHigherCorner());
     }
 
     abstract Vector2d getLeftLowerCorner();
     abstract Vector2d getRightHigherCorner();
 
-    public abstract void moved(Vector2d position);
+
 }

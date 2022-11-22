@@ -29,7 +29,6 @@ public class RectangularMap extends AbstractWorldMap{
         return new Vector2d(width,height);
     }
 
-    @Override
-    public void moved(Vector2d position) {}
+
 
 }

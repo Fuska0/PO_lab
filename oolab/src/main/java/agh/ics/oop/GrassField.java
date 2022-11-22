@@ -15,8 +15,8 @@ public class GrassField extends AbstractWorldMap{
     public void layOutGrass(int n){
         Random r = new Random();
         for(int i = 0; i< n; i++){
-            int x = r.nextInt((int) Math.sqrt(n*10) );
-            int y = r.nextInt((int) Math.sqrt(n*10) );
+            int x = r.nextInt((int) Math.sqrt(n*10) + 1);
+            int y = r.nextInt((int) Math.sqrt(n*10) + 1);
             if(isOccupied(new Vector2d(x, y))){
                 i--;
             }
@@ -81,8 +81,7 @@ public class GrassField extends AbstractWorldMap{
         return null;
     }
 
-    @Override
-    public void moved(Vector2d position) {
+    public void deleteGrass(Vector2d position) {
         if(grassAt(position) != null){
             layOutGrass(1);
             grassList.remove(this.grassAt(position));
