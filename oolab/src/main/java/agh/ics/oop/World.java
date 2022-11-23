@@ -1,26 +1,22 @@
 package agh.ics.oop;
 
+import java.awt.*;
+
 public class World {
+
+//    public static final Vector2d LOWER_BOUND = new Vector2d(0,0); //takie nasze wprowadzone stale, moga byc prywatne
+//    public static final Vector2d UPPER_BOUND = new Vector2d(4,4); //takie nasze wprowadzone stale
 
     public static void main(String[] args) {
 
-        Animal rakLucyna = new Animal();
-        OptionsParser optionsParser = new OptionsParser();
-
-        System.out.println(rakLucyna.toString());
-
-        MoveDirection[] Directions = optionsParser.parse(args);
-
-        for(MoveDirection directions: Directions){
-            rakLucyna.move(directions);
-        }
-         System.out.println(rakLucyna.toString());
-
+        MoveDirection[] directions = new OptionsParser().parse(args);
+        IWorldMap map = new RectangularMap(10, 8);
+        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(0,0), new Vector2d(3,4) };
+        IEngine engine = new SimulationEngine(directions, map, positions);
+        engine.run();
+        System.out.println(map.toString());
 
     }
-    // na ten moment najprawdopodobniej zaimplementowalbym metode ktora posiadalaby tablice  dwuwymiarowa w jakim miejscu
-    // znajduje sie jakis zwierzak. przy tworzeniu kazdego zwierzaka i poruszaniu sie nim, dane w tablicy bylyby
-    // aktualizowane oraz mozliwosc przejscia na dane pola bylaby tylko wtedy gdy jest ono puste
 }
 
 
