@@ -21,13 +21,14 @@ public class GrassField extends AbstractWorldMap{
                 i--;
             }
             else {
-                grassHashMap.put(new Vector2d(x, y), new Grass(new Vector2d(x, y)));
+                addGrass(new Vector2d(x, y));
             }
         }
     }
 
     public void addGrass(Vector2d position){
         grassHashMap.put(position, new Grass(position));
+        mapBoundary.addMapBoundary(position);
     }
 
     @Override
@@ -41,26 +42,12 @@ public class GrassField extends AbstractWorldMap{
     }
 
     @Override
-    protected Vector2d getLeftLowerCorner(){
-        Vector2d lowerBound = new Vector2d(99999, 99999);
-        for(Vector2d tmpPosition: grassHashMap.keySet()){
-            lowerBound = lowerBound.LowerLeft(tmpPosition);
-        }
-        for(Vector2d tmpPosition: animalsHashMap.keySet()){
-            lowerBound = lowerBound.LowerLeft(tmpPosition);
-        }
-        return lowerBound;
+    public Vector2d getLeftLowerCorner(){
+        return mapBoundary.getLowerLeft();
     }
     @Override
-    protected Vector2d getRightHigherCorner(){
-        Vector2d upperBound = new Vector2d(-99999, -99999);
-        for(Vector2d tmpPosition: grassHashMap.keySet()){
-            upperBound = upperBound.UpperRight(tmpPosition);
-        }
-        for(Vector2d tmpPosition: animalsHashMap.keySet()){
-            upperBound = upperBound.UpperRight(tmpPosition);
-        }
-        return upperBound;
+    public Vector2d getRightHigherCorner(){
+        return mapBoundary.getUpperRight();
     }
     @Override
     public Object objectAt(Vector2d position) {
