@@ -16,7 +16,8 @@ public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObser
             mapBoundary.addMapBoundary(animal.getPosition());
             return true;
         }
-       throw new IllegalArgumentException("cannot place an Animal on " + animal.getPosition());
+        else {
+       throw new IllegalArgumentException("cannot place an Animal on " + animal.getPosition());}
     }
 
     @Override

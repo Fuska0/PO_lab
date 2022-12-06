@@ -22,7 +22,7 @@ public class App extends Application {
 
         try{MoveDirection[] directions = parse(args);
             map = new GrassField(10);
-            Vector2d[] positions = { new Vector2d(5,6), new Vector2d(3,4) };
+            Vector2d[] positions = { new Vector2d(5,6), new Vector2d(1,1) };
             IEngine engine = new SimulationEngine(directions, map, positions);
             engine.run();
         }
@@ -50,22 +50,20 @@ public class App extends Application {
         gridPane.add(start,0,0);
         GridPane.setHalignment(start, HPos.CENTER);
 
-        int index=1;
-        for(int i=xMin;i<=xMax;i++){
+        for(int i = 1; i<=xMax - xMin + 1; i++){
             gridPane.getColumnConstraints().add(new ColumnConstraints(width));
-            Label label = new Label(Integer.toString(i));
-            gridPane.add(label,index,0);
+            Label label = new Label(Integer.toString(xMin + i -1));
+            gridPane.add(label,i,0);
             GridPane.setHalignment(label,HPos.CENTER);
-            index+=1;
         }
-        index=1;
-        for(int j=yMin;j<=yMax;j++){
+
+        for(int i = 1; i <= yMax - yMin + 1; i++){
             gridPane.getRowConstraints().add(new RowConstraints(height));
-            Label label = new Label(Integer.toString(yMax-j));
-            gridPane.add(label,0,index);
+            Label label = new Label(Integer.toString(yMax-i+1));
+            gridPane.add(label,0, i);
             GridPane.setHalignment(label,HPos.CENTER);
-            index+=1;
         }
+
         for(int j=yMin;j<=yMax;j++){
             for(int i=xMin;i<=xMax;i++){
                 Vector2d pos = new Vector2d(i,j);
@@ -79,7 +77,8 @@ public class App extends Application {
                 }
             }
         }
-        Scene scene = new Scene(gridPane, 400, 400);
+
+        Scene scene = new Scene(gridPane, 800, 800);
         stage.setScene(scene);
         stage.show();
     }

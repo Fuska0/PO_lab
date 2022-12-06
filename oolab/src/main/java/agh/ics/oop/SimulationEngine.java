@@ -16,8 +16,10 @@ public class SimulationEngine implements IEngine{
             if(map.canMoveTo(position)){
                 map.place(new Animal(map, position));
             }
+            else {throw new IllegalArgumentException("cannot place an Animal on " + position);}
+            }
         }
-    }
+
 
     public void run(){
 
