@@ -1,19 +1,23 @@
 package agh.ics.oop;
 import java.util.HashMap;
 
-abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver  {
+public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver  {
 
     protected HashMap<Vector2d, Animal> animalsHashMap = new HashMap<>();
+    protected MapBoundary mapBoundary = new MapBoundary();
+
 
 
     @Override
-    public boolean place(Animal animal) {
+    public boolean place(Animal animal) throws IllegalArgumentException {
         if(canMoveTo(animal.getPosition())) {
             animalsHashMap.put(animal.getPosition(),animal);
             animal.addObserver(this);
+            mapBoundary.addMapBoundary(animal.getPosition());
             return true;
         }
-        return false;
+        else {
+       throw new IllegalArgumentException("cannot place an Animal on " + animal.getPosition());}
     }
 
     @Override
@@ -32,14 +36,15 @@ abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver  {
         return map.draw(getLeftLowerCorner(), getRightHigherCorner());
     }
 
-    abstract Vector2d getLeftLowerCorner();
-    abstract Vector2d getRightHigherCorner();
+    public abstract Vector2d getLeftLowerCorner();
+    public abstract Vector2d getRightHigherCorner();
 
     @Override
     public void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
         Animal animal = animalsHashMap.get(oldPosition);
         animalsHashMap.remove(oldPosition);
         animalsHashMap.put(newPosition, animal);
+        this.mapBoundary.positionChanged(oldPosition, newPosition);
     }
 
 

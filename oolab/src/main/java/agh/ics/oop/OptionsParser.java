@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class OptionsParser {
 
-    public MoveDirection[] parse(String[] args){
+    public static MoveDirection[] parse(String[] args) throws IllegalArgumentException{
 
         int counter = 0;
         int n = args.length;
@@ -27,7 +27,7 @@ public class OptionsParser {
                     Directions[counter] = MoveDirection.LEFT;
                     counter++;
                 }
-                default -> {}
+                default -> {throw new IllegalArgumentException(direction + " is not legal move specification");}
             }
         }
 

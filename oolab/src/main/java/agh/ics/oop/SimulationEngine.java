@@ -13,11 +13,13 @@ public class SimulationEngine implements IEngine{
         this.map = map;
         this.positions = positions;
         for (Vector2d position : positions) {
-            if(map.place(new Animal(map, position))){
+            if(map.canMoveTo(position)){
                 map.place(new Animal(map, position));
             }
+            else {throw new IllegalArgumentException("cannot place an Animal on " + position);}
+            }
         }
-    }
+
 
     public void run(){
 
