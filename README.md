@@ -1,1 +1,1 @@
-This is a repository of solved tasks from the course "Object Oriented Programming" implemented in the third semester. 
+Jest to repozytorium, w którym znajdują się zadania wykonane na kursie o nazwie "Programowanie Obiektowe", realizowanym na trzecim semestrze studiów.
